@@ -44,7 +44,7 @@ if ($result_data > 0) {
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Punto de Venta</title>
+	<title>CETPRO LURIN</title>
 
 	<!-- Custom styles for this template-->
 	<link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -72,15 +72,14 @@ if ($result_data > 0) {
 			<!-- Main Content -->
 			<div id="content">
 				<!-- Topbar -->
-				<nav class="navbar navbar-expand navbar-light bg-primary text-white topbar mb-4 static-top shadow">
+				<nav class="navbar navbar-expand navbar-light  bg-dark text-white topbar mb-4 static-top shadow">
 
 					<!-- Sidebar Toggle (Topbar) -->
 					<button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
 						<i class="fa fa-bars"></i>
 					</button>
 					<div class="input-group">
-						<h6>Sistema de Venta</h6>
-						<p class="ml-auto"><strong>Peru, </strong><?php echo fechaPeru(); ?></p>
+						<h6 id="fechaHora" class="text-warning"><strong></strong></h6>						
 					</div>
 
 					<!-- Topbar Navbar -->
@@ -91,17 +90,19 @@ if ($result_data > 0) {
 						<!-- Nav Item - User Information -->
 						<li class="nav-item dropdown no-arrow">
 							<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<span class="mr-2 d-none d-lg-inline small text-white"><?php echo $_SESSION['nombre']; ?></span>
+							<span style="font-size: large;" class="mr-2 d-none d-lg-inline small text-warning"><?php echo $_SESSION['nombre']; ?></span>
+
+
 							</a>
 							<!-- Dropdown - User Information -->
-							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-								<a class="dropdown-item" href="#">
-									<i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+							<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in bg-dark" aria-labelledby="userDropdown">
+								<a class="dropdown-item text-warning bg-dark" href="#">
+									<i class="fas fa-user fa-sm fa-fw mr-2 text-warning-400"></i>
 									<?php echo $_SESSION['email']; ?>
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="salir.php">
-									<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+								<a class="dropdown-item text-warning bg-dark" href="salir.php">
+									<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-warning-400"></i>
 									Salir
 								</a>
 							</div>
@@ -110,3 +111,21 @@ if ($result_data > 0) {
 					</ul>
 
 				</nav>
+				<script>
+					function actualizarFechaHora() {
+						var fechaHoraElemento = document.getElementById('fechaHora');
+						var ahora = new Date();
+						var fechaHora = ahora.toLocaleString('es-PE'); // Puedes ajustar el formato según tu preferencia
+						fechaHoraElemento.innerHTML = '<strong>' + fechaHora + '</strong>';
+					}
+
+					// Actualizar la hora cada segundo
+					setInterval(actualizarFechaHora, 1000);
+
+					// Llamar a la función para mostrar la hora actual al cargar la página
+					actualizarFechaHora();
+				</script>
+
+				
+					
+</body>

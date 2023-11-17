@@ -18,10 +18,11 @@
 					<thead class="thead-dark">
 						<tr>
 							<th>ID</th>
-							<th>NOMBRE</th>
-							<th>CORREO</th>
 							<th>USUARIO</th>
+							<th>NOMBRE</th>
+							<th>CORREO</th>			
 							<th>DIRECCIÓN</th>
+							<th>ESTADO</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
 							<th>ACCIONES</th>
 							<?php }?>
@@ -31,19 +32,23 @@
 						<?php
 						include "../conexion.php";
 
-						$query = mysqli_query($conexion, "SELECT u.idusuario, u.nombre, u.correo, u.usuario, r.rol FROM usuario u INNER JOIN rol r ON u.rol = r.idrol");
+						$query = mysqli_query($conexion, "SELECT u.idusuario, u.nombre, u.correo, u.usuario, u.estado, r.rol FROM usuario u INNER JOIN rol r ON u.rol = r.idrol");
 						$result = mysqli_num_rows($query);
 						if ($result > 0) {
 							while ($data = mysqli_fetch_assoc($query)) { ?>
 								<tr>
 									<td><?php echo $data['idusuario']; ?></td>
+									<td><?php echo $data['usuario']; ?></td>
 									<td><?php echo $data['nombre']; ?></td>
 									<td><?php echo $data['correo']; ?></td>
-									<td><?php echo $data['usuario']; ?></td>
+									
 									<td><?php echo $data['rol']; ?></td>
+									<td><?php echo $data['estado']; ?></td>
 									<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
-										<a href="editar_usuario.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-success"><i class='fas fa-edit'></i> Editar</a>
+									
+										<a href="rol.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-warning"><i class='fas fa-key'></i></a>
+										<a href="editar_usuario.php?id=<?php echo $data['idusuario']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 										<form action="eliminar_usuario.php?id=<?php echo $data['idusuario']; ?>" method="post" class="confirmar d-inline">
 											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
 										</form>
