@@ -19,7 +19,7 @@
 						<tr>
 							<th>ID</th>
 							<th>USUARIO</th>
-							<th>NOMBRE</th>
+							<th>NOMBRES Y APELLIDOS</th>
 							<th>CORREO</th>			
 							<th>DIRECCIÓN</th>
 							<th>ESTADO</th>

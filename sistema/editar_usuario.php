@@ -48,7 +48,7 @@ if ($result_sql == 0) {
         <?php echo isset($alert) ? $alert : ''; ?>
         <input type="hidden" name="id" value="<?php echo $idusuario; ?>">
         <div class="form-group">
-          <label for="nombre">Nombre</label>
+          <label for="nombre">Nombres y Apellidos</label>
           <input type="text" placeholder="Ingrese nombre" class="form-control" name="nombre" id="nombre" value="<?php echo $nombre; ?>">
 
         </div>

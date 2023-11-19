@@ -41,10 +41,10 @@
 								<label>Dirección:</label>
 								<input type="text" name="txtDirEmpresa" class="form-control" value="<?php echo $dirEmpresa; ?>" id="txtDirEmpresa" placeholder="Dirreción de la Empresa" required>
 							</div>
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label>IGV (%):</label>
 								<input type="text" name="txtIgv" class="form-control" value="<?php echo $igv; ?>" id="txtIgv" placeholder="IGV de la Empresa" required>
-							</div>
+							</div> -->
 							<?php echo isset($alert) ? $alert : ''; ?>
 							<div class="text-center">
 								<button type="submit" class="btn btn-warning btnChangePass"><i class="fas fa-save"></i> Guardar Datos</button>
